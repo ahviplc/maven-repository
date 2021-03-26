@@ -9,7 +9,11 @@ fi
 arg=$1
 
 DEPLOY_PATH=D:\DevelopSoftKu\Git\GitKu\maven-repository
+# mac or linux
 CURRENT_PATH=`pwd`
+
+# win 是 chdir
+# CURRENT_PATH=`chdir`
 
 deployFunc(){
   br=$1
@@ -23,13 +27,13 @@ deployFunc(){
 
   # deploy 完成,提交
   cd $DEPLOY_PATH
-  git add -am 'deploy'
+  git add -am 'deploy.'
   git push origin $br
 
   # 合并master分支
   git checkout master
   git merge $br
-  git commit -am 'merge'
+  git commit -am 'merge.'
   git push origin master
   cd $CURRENT_PATH
 }

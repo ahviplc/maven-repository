@@ -46,6 +46,18 @@ xml 配置如下
 </repositories>
 ```
 
+或者添加如下,速度更快
+
+```xml
+<!--添加repositories 使用fastgit 速度更快 可解决Could not transfer artifact问题-->
+<repositories>
+    <repository>
+        <id>ahviplc-maven-repo</id>
+        <url>https://raw.fastgit.org/ahviplc/maven-repository/master/repository</url>
+    </repository>
+</repositories>
+```
+
 **引入依赖**
 
 按需引入即可
@@ -235,6 +247,17 @@ chmod +x deploy.sh
 </repositories>
 ```
 
+或者添加如下,速度更快
+
+```xml
+<!--添加repositories 使用fastgit 速度更快 可解决Could not transfer artifact问题-->
+<repositories>
+    <repository>
+        <id>ahviplc-maven-repo</id>
+        <url>https://raw.fastgit.org/ahviplc/maven-repository/master/repository</url>
+    </repository>
+</repositories>
+```
 
 仓库配置完毕之后，直接引入依赖即可，如依赖我的Quick-Alarm包，就可以添加下面的依赖配置
 

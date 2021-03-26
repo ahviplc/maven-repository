@@ -259,7 +259,7 @@ chmod +x deploy.sh
 </repositories>
 ```
 
-仓库配置完毕之后，直接引入依赖即可，如依赖我的Quick-Alarm包，就可以添加下面的依赖配置
+仓库配置完毕之后，直接引入依赖即可，如依赖我的JustToolc包，就可以添加下面的依赖配置
 
 ```xml
 <dependency>

@@ -16,6 +16,8 @@ https://www.freesion.com/article/7799452380/
 
 ## I. 使用手册
 
+> 使用的简单说明
+
 xml 配置如下
 
 **添加仓库**
@@ -35,7 +37,11 @@ xml 配置如下
 </repositories>
 ```
 
+### 原始
+
 如果不care的话，直接添加下面的即可
+
+> 原始链接
 
 ```xml
 <repositories>
@@ -46,16 +52,44 @@ xml 配置如下
 </repositories>
 ```
 
-或者添加如下,速度更快
+### fastgit-废弃
+
+或者使用 fastgit
+
+> fastgit 现在有问题 不推荐使用 已废弃
 
 ```xml
-<!--添加repositories 使用fastgit 速度更快 可解决Could not transfer artifact问题-->
+<!--添加repositories 其fastgit 现在有问题 不推荐使用 已废弃-->
 <repositories>
     <repository>
         <id>ahviplc-maven-repo</id>
         <url>https://raw.fastgit.org/ahviplc/maven-repository/master/repository</url>
     </repository>
 </repositories>
+```
+
+### ghproxy
+
+> fastgit基本废弃-还没官方地址好用 推荐使用 ghproxy 速度更快,更稳定 - 【https://ghproxy.com/】
+
+```xml
+<repository>
+<id>ahviplc-maven-repo</id>
+<!-- ghproxy【https://ghproxy.com/】速度更快 -->
+<url>https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository</url>
+</repository>
+```
+
+### bajins
+
+> 或者使用 bajins 的github镜像 - 【https://github.bajins.com/】
+
+```xml
+<repository>
+<id>ahviplc-maven-repo</id>
+<!-- bajins【https://github.bajins.com/】速度也不错 -->
+<url>https://github.bajins.com/ahviplc/maven-repository/raw/master/repository</url>
+</repository>
 ```
 
 **引入依赖**
@@ -221,6 +255,8 @@ chmod +x deploy.sh
 
 **添加仓库**
 
+### 原始链接
+
 如果要区分snapshot和release的话，如下配置
 
 ```xml
@@ -238,6 +274,8 @@ chmod +x deploy.sh
 
 如果不care的话，直接添加下面的即可
 
+> 这是原始链接
+
 ```xml
 <repositories>
     <repository>
@@ -246,8 +284,17 @@ chmod +x deploy.sh
     </repository>
 </repositories>
 ```
+pom
+> https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.pom
+
+jar
+> https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.jar
+
+### fastgit-废弃
 
 或者添加如下,速度更快
+
+> fastgit 现在有问题 不推荐使用 已废弃
 
 ```xml
 <!--添加repositories 使用fastgit 速度更快 可解决Could not transfer artifact问题-->
@@ -257,6 +304,59 @@ chmod +x deploy.sh
         <url>https://raw.fastgit.org/ahviplc/maven-repository/master/repository</url>
     </repository>
 </repositories>
+```
+pom
+> https://raw.fastgit.org/ahviplc/maven-repository/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.pom
+
+jar
+> https://raw.fastgit.org/ahviplc/maven-repository/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.jar
+
+### ghproxy
+
+> fastgit基本废弃-还没官方地址好用 推荐使用 ghproxy 速度更快,更稳定 - 【https://ghproxy.com/】
+
+```xml
+<repository>
+<id>ahviplc-maven-repo</id>
+<!-- ghproxy【https://ghproxy.com/】速度更快 -->
+<url>https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository</url>
+</repository>
+```
+
+pom
+> https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.pom
+
+jar
+> https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.jar
+
+### bajins
+
+> 或者使用 bajins 的github镜像 - 【https://github.bajins.com/】
+
+```xml
+<repository>
+<id>ahviplc-maven-repo</id>
+<!-- bajins【https://github.bajins.com/】速度也不错 -->
+<url>https://github.bajins.com/ahviplc/maven-repository/raw/master/repository</url>
+</repository>
+```
+
+pom
+> https://github.bajins.com/ahviplc/maven-repository/raw/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.pom
+
+jar
+> https://github.bajins.com/ahviplc/maven-repository/raw/master/repository/com/lc/JustToolc/0.2.0/JustToolc-0.2.0.jar
+
+## 引入依赖
+
+> 如依赖我的JustToolc包，就可以添加下面的依赖配置
+
+```xml
+<dependency>
+  <groupId>com.lc</groupId>
+  <artifactId>JustToolc</artifactId>
+  <version>0.2.0</version>
+</dependency>
 ```
 
 仓库配置完毕之后，直接引入依赖即可，如依赖我的JustToolc包，就可以添加下面的依赖配置
@@ -268,9 +368,6 @@ chmod +x deploy.sh
   <version>0.2.0</version>
 </dependency>
 ```
-
-
-
 # git操作
 
 > create a new repository on the command line | push an existing repository from the command line

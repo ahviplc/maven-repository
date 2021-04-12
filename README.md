@@ -132,9 +132,13 @@ xml 配置如下
 
 本地指定一个目录，新建文件夹 `maven-repository`, 如我的本地配置如下
 
+win下(其他系统类似,要看到核心):
 ```sh
+## 切换盘符
+D：
+
 ## 进入目录
-cd D:\DevelopSoftKu\Git\GitKu # win下不是这样的 【先 D： => 再 cd DevelopSoftKu\Git\GitKu】
+cd D:\DevelopSoftKu\Git\GitKu
 
 ## 新建目录
 mkdir maven-repository; cd maven-repository
@@ -158,7 +162,7 @@ touch README.md
 
 将本地的仓库和远程的github仓库关联起来，执行的命令也比较简单了
 
-> 进入本地指定一个目录,此文件夹 `maven-repository`  然后执行如下命令 进行git托管
+> 进入本地指定一个目录,此文件夹 `maven-repository`  然后执行如下命令 进行git托管 进行初始化提交,远程推送
 
 ```sh
 git add .
@@ -186,7 +190,7 @@ git checkout -b release
 git push origin release
 ```
 
-### 4. 项目deploy发布和生成文档和源码命令 
+### 4. 项目deploy发布和生成jar包生成文档和源码命令 
 
 > 最常用的打包命令有mvn package、mvn install、deploy，这三个命令都可完成打jar包或war（当然也可以是其它形式的包）的功能，但这三个命令还是有区别的，具体说明如下:
 
@@ -228,7 +232,7 @@ maven清理安装并生成source.jar
 
 > mvn clean install source:jar -Dmaven.test.skip=true -Dmaven.javadoc.skip=false
 
-同时也需要主动的指定一下install或者deploy的地址，所以我们的install或deploy发布生成jar包同时生成javadoc文档和source源码的命令如下：
+同时也需要主动的指定一下deploy的地址，所以我们的deploy发布生成jar包同时生成javadoc文档和source源码的命令如下：
 
 >  maven-repository的maven一行命令生成,实战下来,这里我们不能只是使用install将其部署到本地,这里具体位置可以配置的,是在maven的settings.xml的
 >
@@ -245,7 +249,7 @@ maven清理安装并生成source.jar
 >  然后我们可以手动 git commit 和 git push 推送到github的remote仓库.
 
 ```sh
-# install生成jar包同时生成javadoc文档和source源码的命令
+# deploy生成jar包同时生成javadoc文档和source源码的命令
 mvn -T 1C clean source:jar javadoc:javadoc deploy -Dmaven.test.skip=true -Dmaven.javadoc.skip=false -DaltDeploymentRepository=self-mvn-repo::default::file:D:\DevelopSoftKu\Git\GitKu\maven-repository\repository
 ```
 
@@ -266,10 +270,10 @@ clean:    清理上一次构建生成的文件
 > 1. 进入d盘 命令:> D:
 > 2. mkdir DevelopSoftKu\Git\GitKu\mavenrepository\repository
 
-单独deploy版本 -使用这个的话 - 生成jar包但无文档无源码
+单独deploy版本 -使用这个的话 - 生成jar包有文档但无源码
 
 ```sh
-# deploy项目到本地仓库 - 生成jar包但无文档无源码
+# deploy项目到本地仓库 - 生成jar包有文档但无源码
 mvn clean deploy -Dmaven.test.skip -DaltDeploymentRepository=self-mvn-repo::default::file:D:\DevelopSoftKu\Git\GitKu\maven-repository\repository
 ```
 
@@ -282,7 +286,7 @@ mvn clean deploy -Dmaven.test.skip -DaltDeploymentRepository=self-mvn-repo::defa
 
 由于shell实在是不太会写，所以下面的脚本只能以凑合能用来说了
 
-> deploy脚本 - 不带文档和源码版本
+> deploy脚本 - 不带源码版本
 
 ```sh
 #!/bin/bash
@@ -305,7 +309,7 @@ deployFunc(){
   ## 切换对应分支
   git checkout $br
   cd $CURRENT_PATH
-  # 开始deploy-生成jar包但无文档无源码
+  # 开始deploy-生成jar包有文档但无源码
   mvn clean deploy -Dmaven.test.skip -DaltDeploymentRepository=self-mvn-repo::default::file:D:\DevelopSoftKu\Git\GitKu\maven-repository\repository
 
   # deploy 完成,提交
@@ -332,7 +336,7 @@ else
 fi
 ```
 
-> deploy脚本 - 带文档和源码版本 - 推荐使用 - 包含文档,源码的生成
+> deploy脚本 - 带源码版本 - 推荐使用 - 包含源码的生成
 
 ```sh
 #!/bin/bash

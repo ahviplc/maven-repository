@@ -535,14 +535,33 @@ jar
 
 > 如依赖我的hello-spring-boot-starter包，就可以添加下面的依赖配置
 
+`在pom.xml中添加`
+
 ```xml
+<!-- 指定私有仓库 -->
+<repositories>
+    <repository>
+        <id>ahviplc-maven-repo</id>
+        <!-- ghproxy【https://ghproxy.com/】速度更快 -->
+        <url>https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository</url>
+    </repository>
+</repositories>
+
+<dependencies>
+
 <!-- 引入`hello-spring-boot-starter`依赖 -->
 <dependency>
     <groupId>com.lc</groupId>
     <artifactId>hello-spring-boot-starter</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
+
+</dependencies>
 ```
+
+`测试 可成功 如有以下提示 可无视`
+
+> Could not find artifact com.lc:hello-spring-boot-starter:jar:1.0.0-SNAPSHOT in ahviplc-maven-repo (https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository)
 
 # 扩展-git操作
 

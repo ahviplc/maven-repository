@@ -540,11 +540,21 @@ jar
 ```xml
 <!-- 指定私有仓库 -->
 <repositories>
+
+    <!-- 阿里云公共仓库-public是central仓和jcenter仓的聚合仓 -->
+    <repository>
+        <id>aliyun-maven-repo</id>
+        <name>阿里云公共仓库-public</name>
+        <url>https://maven.aliyun.com/repository/public</url>
+    </repository>
+
+    <!-- 添加 自定义github maven仓库的 repositories 使用 ghproxy 速度更快 可解决Could not transfer artifact问题 -->
     <repository>
         <id>ahviplc-maven-repo</id>
         <!-- ghproxy【https://ghproxy.com/】速度更快 -->
         <url>https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository</url>
     </repository>
+    
 </repositories>
 
 <dependencies>

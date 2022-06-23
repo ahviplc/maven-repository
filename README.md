@@ -538,9 +538,10 @@ jar
 `在pom.xml中添加以下内容`
 
 ```xml
-<!-- 指定私有仓库 -->
+<!-- 阿里云公共仓库 和 指定自己的私有仓库 搭配使用 -->
 <repositories>
 
+    <!-- 阿里云公共仓库 -->
     <!-- 阿里云公共仓库-public是central仓和jcenter仓的聚合仓 -->
     <repository>
         <id>aliyun-maven-repo</id>
@@ -548,6 +549,7 @@ jar
         <url>https://maven.aliyun.com/repository/public</url>
     </repository>
 
+    <!-- 指定私有仓库 -->
     <!-- 添加 自定义github maven仓库的 repositories 使用 ghproxy 速度更快 可解决Could not transfer artifact问题 -->
     <repository>
         <id>ahviplc-maven-repo</id>

@@ -535,7 +535,7 @@ jar
 
 > 如依赖我的hello-spring-boot-starter包，就可以添加下面的依赖配置
 
-`在pom.xml中添加`
+`在pom.xml中添加以下内容`
 
 ```xml
 <!-- 指定私有仓库 -->
@@ -559,7 +559,17 @@ jar
 </dependencies>
 ```
 
-`测试 可成功 如有以下提示 可无视`
+`测试 可成功 如有以下提示 可无视 因为这是spring boot的starter（启动器） 无对应jar包 只有对应pom文件`
+
+`原生github路径`
+
+> https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository/com/lc/hello-spring-boot-starter/1.0.0-SNAPSHOT/hello-spring-boot-starter-1.0.0-20220623.013745-1.pom
+
+`ghproxy的github路径 更快 更易访问`
+
+> https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository/com/lc/hello-spring-boot-starter/1.0.0-SNAPSHOT/hello-spring-boot-starter-1.0.0-20220623.013745-1.pom
+
+> starter（启动器）有自己定义的自动配的功能，而且具有更通用的耦合度更低的配置
 
 > Could not find artifact com.lc:hello-spring-boot-starter:jar:1.0.0-SNAPSHOT in ahviplc-maven-repo (https://ghproxy.com/https://raw.githubusercontent.com/ahviplc/maven-repository/master/repository)
 

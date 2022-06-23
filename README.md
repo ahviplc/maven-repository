@@ -509,6 +509,8 @@ jar
 
 ## 引入依赖
 
+### 引入JustToolc包
+
 > 如依赖我的JustToolc包，就可以添加下面的依赖配置
 
 ```xml
@@ -528,6 +530,20 @@ jar
   <version>0.2.0</version>
 </dependency>
 ```
+
+### 引入hello-spring-boot-starter包
+
+> 如依赖我的hello-spring-boot-starter包，就可以添加下面的依赖配置
+
+```xml
+<!-- 引入`hello-spring-boot-starter`依赖 -->
+<dependency>
+    <groupId>com.lc</groupId>
+    <artifactId>hello-spring-boot-starter</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
 # 扩展-git操作
 
 > create a new repository on the command line | push an existing repository from the command line
